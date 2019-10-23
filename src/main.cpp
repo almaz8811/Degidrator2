@@ -3,6 +3,8 @@
 #include "blynk_init.h"
 #include "blynk_data.h"
 
+
+
 void setup()
 {
   // put your setup code here, to run once:
@@ -18,4 +20,9 @@ void loop()
   Blynk.run();
   httpServer.handleClient();
   MDNS.update();
+}
+
+void start(int checkStart)
+{
+    digitalWrite(4, checkStart);
 }

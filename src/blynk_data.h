@@ -1,3 +1,5 @@
+void start(int checkStart);
+
 BLYNK_WRITE(V0) // Пресеты
 {
     if (param.asInt() == 1)
@@ -46,5 +48,6 @@ BLYNK_WRITE(V3) // Температура сушки
 
 BLYNK_WRITE(V5) // реле
 {
-    digitalWrite(4, param.asInt());
+    start(param.asInt());
 }
+
