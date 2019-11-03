@@ -7,7 +7,7 @@
 
 void setup()
 {
-  // put your setup code here, to run once:
+  // put your setup code hegre, to run once:
   Serial.begin(9600);
   Serial.println();
   pinMode(4, OUTPUT);
