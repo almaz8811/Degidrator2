@@ -36,6 +36,7 @@ int time_sushki;
 int rejim;
 int temp_sushki;
 int checkStart;
+uint32_t myTimer;
 
 BLYNK_CONNECTED()
 {
