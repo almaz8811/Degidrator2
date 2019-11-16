@@ -1,4 +1,4 @@
-void start(int checkStart);
+void start(int time_sushki, int rejim, int temp_sushki, int checkStart);
 
 BLYNK_WRITE(V0) // Пресеты
 {
@@ -48,6 +48,7 @@ BLYNK_WRITE(V3) // Температура сушки
 
 BLYNK_WRITE(V5) // реле
 {
-    start(param.asInt());
+
+    start(time_sushki, rejim, temp_sushki, param.asInt());
 }
 
