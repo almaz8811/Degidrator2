@@ -89,10 +89,12 @@ void loop()
   Blynk.run();
   httpServer.handleClient();
   MDNS.update();
-  start();
+  if (millis() - myTimer >= 500)
+  {
+    start();
+    myTimer = millis();
+  }
 }
-
-
 
 void saveData()
 {
