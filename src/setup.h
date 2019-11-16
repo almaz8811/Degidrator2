@@ -24,17 +24,21 @@ ESP8266WebServer httpServer(80);
 ESP8266HTTPUpdateServer httpUpdater;
 
 //callback notifying us of the need to save config
+//void readData();
 void saveConfigCallback()
 {
     Serial.println("Should save config");
     shouldSaveConfig = true;
 }
 
+int preset;
 int time_sushki;
 int rejim;
 int temp_sushki;
+int checkStart;
 
 BLYNK_CONNECTED()
 {
+    //readData();
     Blynk.syncAll();
 }

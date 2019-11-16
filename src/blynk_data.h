@@ -1,7 +1,9 @@
-void start(int time_sushki, int rejim, int temp_sushki, int checkStart);
+//void start(int time_sushki, int rejim, int temp_sushki, int checkStart);
+void saveData();
 
 BLYNK_WRITE(V0) // Пресеты
 {
+    preset = param.asInt();
     if (param.asInt() == 1)
     { // Курица
         time_sushki = 24;
@@ -26,9 +28,9 @@ BLYNK_WRITE(V0) // Пресеты
         rejim = 3;
         temp_sushki = 30;
     }
-    Blynk.virtualWrite(1, time_sushki);
-    Blynk.virtualWrite(2, rejim);
-    Blynk.virtualWrite(3, temp_sushki);
+    Blynk.virtualWrite(V1, time_sushki);
+    Blynk.virtualWrite(V2, rejim);
+    Blynk.virtualWrite(V3, temp_sushki);
 }
 
 BLYNK_WRITE(V1) // Время сушки
@@ -46,9 +48,7 @@ BLYNK_WRITE(V3) // Температура сушки
     temp_sushki = param.asInt();
 }
 
-BLYNK_WRITE(V5) // реле
-{
-
-    start(time_sushki, rejim, temp_sushki, param.asInt());
+BLYNK_WRITE(V10) // реле
+{    
+    checkStart = param.asInt();
 }
-
