@@ -16,6 +16,10 @@ void readData()
   Blynk.virtualWrite(V3, temp_sushki);
 }
 
+void readSensors(){
+  
+}
+
 void start()
 {
   saveData();
@@ -24,30 +28,30 @@ void start()
     switch (rejim)
     {
     case 1:
-      digitalWrite(14, HIGH);
-      digitalWrite(12, HIGH);
-      digitalWrite(13, LOW);
-      digitalWrite(15, LOW);
+      digitalWrite(14, !HIGH);
+      digitalWrite(12, !HIGH);
+      digitalWrite(13, !LOW);
+      digitalWrite(15, !LOW);
       Blynk.virtualWrite(V5, 255);
       Blynk.virtualWrite(V6, 255);
       Blynk.virtualWrite(V7, 0);
       Blynk.virtualWrite(V8, 0);
       break;
     case 2:
-      digitalWrite(14, HIGH);
-      digitalWrite(12, HIGH);
-      digitalWrite(13, HIGH);
-      digitalWrite(15, LOW);
+      digitalWrite(14, !HIGH);
+      digitalWrite(12, !HIGH);
+      digitalWrite(13, !HIGH);
+      digitalWrite(15, !LOW);
       Blynk.virtualWrite(V5, 255);
       Blynk.virtualWrite(V6, 255);
       Blynk.virtualWrite(V7, 255);
       Blynk.virtualWrite(V8, 0);
       break;
     case 3:
-      digitalWrite(14, HIGH);
-      digitalWrite(12, HIGH);
-      digitalWrite(13, HIGH);
-      digitalWrite(15, HIGH);
+      digitalWrite(14, !HIGH);
+      digitalWrite(12, !HIGH);
+      digitalWrite(13, !HIGH);
+      digitalWrite(15, !HIGH);
       Blynk.virtualWrite(V5, 255);
       Blynk.virtualWrite(V6, 255);
       Blynk.virtualWrite(V7, 255);
@@ -57,10 +61,10 @@ void start()
   }
   else
   {
-    digitalWrite(14, LOW);
-    digitalWrite(13, LOW);
-    digitalWrite(12, LOW);
-    digitalWrite(15, LOW);
+    digitalWrite(14, !LOW);
+    digitalWrite(13, !LOW);
+    digitalWrite(12, !LOW);
+    digitalWrite(15, !LOW);
     Blynk.virtualWrite(V5, 0);
     Blynk.virtualWrite(V6, 0);
     Blynk.virtualWrite(V7, 0);
