@@ -48,7 +48,7 @@ BLYNK_WRITE(V3) // Температура сушки
     temp_sushki = param.asInt();
 }
 
-BLYNK_WRITE(V10) // реле
+BLYNK_WRITE(V11) // реле
 {    
     checkStart = param.asInt();
 }

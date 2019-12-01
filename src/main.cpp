@@ -16,9 +16,6 @@ void readData()
   Blynk.virtualWrite(V3, temp_sushki);
 }
 
-void readSensors(){
-  
-}
 
 void start()
 {
@@ -72,6 +69,17 @@ void start()
   }
 }
 
+void readSens() {
+  h = dht.readHumidity();
+  t = dht.readTemperature();
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+  Blynk.virtualWrite(V9, h);
+  Blynk.virtualWrite(V10, t);
+}
+
 void setup()
 {
   // put your setup code hegre, to run once:
@@ -81,9 +89,9 @@ void setup()
   pinMode(12, OUTPUT); // Боковые вентиляторы
   pinMode(13, OUTPUT); // Задний вентилятор
   pinMode(15, OUTPUT); // Подогрев
-
   blynk_init();
-
+  dht.begin();
+  timer.setInterval(1000L, readSens);
   //Blynk.syncAll();
 }
 
@@ -91,6 +99,7 @@ void loop()
 {
   // put your main code here, to run repeatedly:
   Blynk.run();
+  timer.run();
   httpServer.handleClient();
   MDNS.update();
   if (millis() - myTimer >= 500)
