@@ -50,8 +50,8 @@ void blynk_init()
     WiFiManager wifiManager;
     wifiManager.setSaveConfigCallback(saveConfigCallback);
     wifiManager.addParameter(&custom_blynk_token);
-    wifiManager.autoConnect("Degidrator v2.0");
-    if (!wifiManager.autoConnect("AutoConnectAP", "password"))
+    wifiManager.autoConnect("Degidrator v2.0", "almaz084284");
+    if (!wifiManager.autoConnect("Degidrator v2.0", "almaz084284"))
     {
         Serial.println("failed to connect and hit timeout");
         delay(3000);
